@@ -3,6 +3,8 @@ import './styles.css';
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from '../consts.js';
 
 const ClassList = ({attributes}) => {
+    const [showStats, setShowStats] = React.useState('');
+
     const classes = Object.keys(CLASS_LIST);
     const barbarian = CLASS_LIST['Barbarian'];
     const wizard = CLASS_LIST['Wizard'];
@@ -37,12 +39,32 @@ const ClassList = ({attributes}) => {
         return false;
     }
 
+    function handleClickStats(key){
+        if (showStats === key) {
+            setShowStats('');
+            console.log('close showStats');
+            return;
+        }
+        setShowStats(key);
+        console.log(`open showStats for ${key}`);
+        return;
+    }
+
     return (
     <div className='container-classlist'>
         <h1>Class List</h1>
         {
             classes.map(item=>(
-                <div className={ isClass(item) ? 'class-item-active':'class-item' }>{item}</div>
+                <div onClick={()=>handleClickStats(item)}
+                className={ isClass(item) ? 'class-item-active':'class-item' }>
+                    <div>{item}</div>
+                    {
+                        showStats === item ?
+                        <div className='class-stats'>
+                            {Object.entries(CLASS_LIST[item])}
+                        </div>:null
+                    }
+                </div>
             ))
         }
     </div>
