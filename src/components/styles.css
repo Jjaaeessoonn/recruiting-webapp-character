@@ -1,0 +1,23 @@
+.container-body {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container-header, .container-attributes, .container-attributes-control, .container-classlist{
+    border: 1px solid white;
+}
+
+.container-attributes{
+    height: 50vh;
+    width: 50vw;
+}
+
+.container-classlist {
+    height: 30vh;
+    width: 30vw;
+}
+
+.class-item-active{
+    background-color: aqua;
+}
