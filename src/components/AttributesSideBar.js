@@ -2,13 +2,7 @@ import React from 'react'
 import './styles.css';
 import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from '../consts.js';
 import ClassList from './ClassList.js';
-
-{/* <div>
-          Value:
-          {num}
-          <button>+</button>
-          <button>-</button>
-        </div> */}
+import SkillsPanel from './SkillsPanel.js';
 
 
 const AttributesSideBar = () => {
@@ -40,7 +34,7 @@ const AttributesSideBar = () => {
             const inc = Math.floor((value-10)/2);
             return inc;
         } else {
-            // ref is at 11
+            // reference is at 11
             let dec = Math.floor((11-value)/2);
             dec = dec*-1;
             return dec;
@@ -70,6 +64,7 @@ const AttributesSideBar = () => {
                 </div>
             </div>
             <ClassList attributes={arrAttributes} />
+            <SkillsPanel intelligence={getModifier(intelligenceNum)}/>
         </div>
     )
 }

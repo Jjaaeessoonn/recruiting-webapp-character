@@ -4,7 +4,11 @@
 
 }
 
-.container-header, .container-attributes, .container-attributes-control, .container-classlist{
+.container-header, 
+.container-attributes, 
+.container-attributes-control, 
+.container-classlist, 
+.container-skills{
     border: 1px solid white;
 }
 
@@ -20,6 +24,11 @@
 
 .class-item-active{
     background-color: aqua;
+}
+
+.container-skills{
+    height: 50vh;
+    width: 20vw;
 }
 
 /* .class-stats{
