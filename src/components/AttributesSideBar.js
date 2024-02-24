@@ -35,6 +35,19 @@ const AttributesSideBar = () => {
         console.log(`Decreased ${attr} by 1`);
     }
 
+    function getModifier(value) {
+        if (value >= 10){
+            const inc = Math.floor((value-10)/2);
+            return inc;
+        } else {
+            // ref is at 11
+            let dec = Math.floor((11-value)/2);
+            dec = dec*-1;
+            return dec;
+        }
+        return 0;
+    }
+
     return (
         <div className='container-body'>
             <div className='container-attributes'>
@@ -47,6 +60,7 @@ const AttributesSideBar = () => {
                                 {attr}: { 
                                     arrAttributes[index]
                                 }
+                                (Modifier: {getModifier(arrAttributes[index])})
                                 <button onClick={()=>handleIncAttr(index)}>+</button>
                                 <button onClick={()=>handleDecAttr(index)}>-</button>
                                 </div>
